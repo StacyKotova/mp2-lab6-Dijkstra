@@ -1,4 +1,4 @@
-enum RBColor { Red = 0, Black = 1 };
+﻿enum RBColor { Red = 0, Black = 1 };
 
 template <typename T>
 struct RBNode

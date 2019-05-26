@@ -1,14 +1,14 @@
-#ifndef EDGE_H
+ï»¿#ifndef EDGE_H
 #define EDGE_H
 
-// Ñòğóêòóğà "ğåáğî ãğàôà"
+// Ğ¡Ñ‚Ñ€ÑƒĞºÑ‚ÑƒÑ€Ğ° "Ñ€ĞµĞ±Ñ€Ğ¾ Ğ³Ñ€Ğ°Ñ„Ğ°"
 struct Edge
 {
-	int begin; // Íîìåğà âåğøèí 
-	int end; // Íîìåğà âåğøèí 
-	double weight; // Âåñ
+	int begin; // ĞĞ¾Ğ¼ĞµÑ€Ğ° Ğ²ĞµÑ€ÑˆĞ¸Ğ½ 
+	int end; // ĞĞ¾Ğ¼ĞµÑ€Ğ° Ğ²ĞµÑ€ÑˆĞ¸Ğ½ 
+	double weight; // Ğ’ĞµÑ
 
-	// Êîíñòğóêòîğ
+	// ĞšĞ¾Ğ½ÑÑ‚Ñ€ÑƒĞºÑ‚Ğ¾Ñ€
 	Edge(int begin, int end, double weight)
 	{
 		this->begin = begin;

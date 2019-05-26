@@ -1,4 +1,4 @@
-#include "Edge.h"
+п»ї#include "Edge.h"
 #include "AVLTree.h"
 #include "DHeap.h"
 #include "RBTree.h"
@@ -9,13 +9,13 @@
 #include <set>
 #include <vector>
 
-// Вспомогательная структура
+// Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅР°СЏ СЃС‚СЂСѓРєС‚СѓСЂР°
 struct Dist
 {
-	int vertex; // Номер вершины
-	double dist; // Расстояние
+	int vertex; // РќРѕРјРµСЂ РІРµСЂС€РёРЅС‹
+	double dist; // Р Р°СЃСЃС‚РѕСЏРЅРёРµ
 
-	// Конструктор
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	Dist(int vertex, double dist)
 	{
 		this->vertex = vertex;
@@ -23,7 +23,7 @@ struct Dist
 	}
 
 	/*
-		Перегрузка операторов сравнения
+		РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂРѕРІ СЃСЂР°РІРЅРµРЅРёСЏ
 	*/
 
 	friend bool operator<(const Dist& x, const Dist& y)
@@ -57,25 +57,25 @@ struct Dist
 	}
 };
 
-// Класс "граф"
+// РљР»Р°СЃСЃ "РіСЂР°С„"
 template<typename T>
 class Graph
 {
-	std::vector<Edge*> edges; // Рёбра
- 	std::set<int> vertices; // Вершины
+	std::vector<Edge*> edges; // Р С‘Р±СЂР°
+ 	std::set<int> vertices; // Р’РµСЂС€РёРЅС‹
 
 public:
-	// Конструктор по умолчанию
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 	Graph(){}
 
-	// Конструктор c параметрами
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ c РїР°СЂР°РјРµС‚СЂР°РјРё
 	Graph(std::vector<Edge*>& edges, std::set<int>& vertices)
 	{
 		this->edges = edges;
 		this->vertices = vertices;
 	}
 
-	// Случайная генерация
+	// РЎР»СѓС‡Р°Р№РЅР°СЏ РіРµРЅРµСЂР°С†РёСЏ
 	static Graph createRandomGraph()
 	{
 		std::random_device rd;
@@ -85,7 +85,7 @@ public:
 		std::vector<Edge*> _edges;
 		std::set<int> _vertices;
 		
-		// Добавление рёбер и вершин
+		// Р”РѕР±Р°РІР»РµРЅРёРµ СЂС‘Р±РµСЂ Рё РІРµСЂС€РёРЅ
 		for (int i = 0; i < count; i++)
 		{
 			_vertices.insert(i);
@@ -98,21 +98,21 @@ public:
 		return Graph(_edges, _vertices);
 	}
 
-	// Проверка на существование вершины в граф
+	// РџСЂРѕРІРµСЂРєР° РЅР° СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёРµ РІРµСЂС€РёРЅС‹ РІ РіСЂР°С„
 	bool isVertex(int vertex)
 	{
 		return vertices.find(vertex) != vertices.end();
 	}
 
-	// Печать графа на экран
+	// РџРµС‡Р°С‚СЊ РіСЂР°С„Р° РЅР° СЌРєСЂР°РЅ
 	void print()
 	{
-		std::cout << "Печать графа на экран:" << std::endl;
+		std::cout << "РџРµС‡Р°С‚СЊ РіСЂР°С„Р° РЅР° СЌРєСЂР°РЅ:" << std::endl;
 		for (Edge* e : edges)
-			std::cout << "Ребро: (" << e->begin << ";" << e->end << ") Вес: " << e->weight << std::endl;
+			std::cout << "Р РµР±СЂРѕ: (" << e->begin << ";" << e->end << ") Р’РµСЃ: " << e->weight << std::endl;
 	}
 
-	// Добавление ребра
+	// Р”РѕР±Р°РІР»РµРЅРёРµ СЂРµР±СЂР°
 	void addEdge(int begin, int end, double weight)
 	{
 		edges.push_back(new Edge(begin, end, weight));
@@ -120,7 +120,7 @@ public:
 		vertices.insert(end);
 	}
 
-	// Проверка на связность
+	// РџСЂРѕРІРµСЂРєР° РЅР° СЃРІСЏР·РЅРѕСЃС‚СЊ
 	bool isComponent()
 	{
 		int start = *vertices.begin();
@@ -155,7 +155,7 @@ public:
 		return true;
 	}
 	
-	// Алгоритм Дейкстры
+	// РђР»РіРѕСЂРёС‚Рј Р”РµР№РєСЃС‚СЂС‹
 	template<template <typename> class Tree>
 	void dijkstra(int start, int D = 2)
 	{
@@ -184,6 +184,6 @@ public:
 				}
 		}
 		for (std::pair<int, double> d : dist)
-			std::cout << "Вершина: " << d.first << " Расстояние: " << d.second << std::endl;
+			std::cout << "Р’РµСЂС€РёРЅР°: " << d.first << " Р Р°СЃСЃС‚РѕСЏРЅРёРµ: " << d.second << std::endl;
 	}
 };

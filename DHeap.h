@@ -1,9 +1,9 @@
-#ifndef DHEAP_H
+п»ї#ifndef DHEAP_H
 #define DHEAP_H
 
 #include <vector>
 
-// D-куча
+// D-РєСѓС‡Р°
 template<typename T>
 class DHeap
 {
@@ -11,7 +11,7 @@ class DHeap
 	std::vector<T> data;
 	
 public:
-	// Конструктор
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	DHeap(int D = 2, int size = 0)
 	{
 		this->D = D;
@@ -24,44 +24,44 @@ public:
 		this->data = data;
 	}
 	
-	// Проверка на пустоту
+	// РџСЂРѕРІРµСЂРєР° РЅР° РїСѓСЃС‚РѕС‚Сѓ
 	bool isEmpty()
     {
 		return data.size() == 0;
     }
 	
-	// Ребенок
+	// Р РµР±РµРЅРѕРє
 	size_t child(int i, int k)
     {
         return D * i + k;
     }
 	
-	// Родитель
+	// Р РѕРґРёС‚РµР»СЊ
 	int parent(int index)
     {
         return (index - 1) / D;
     }
 	
-	// Вставка
+	// Р’СЃС‚Р°РІРєР°
 	void insert(const T& value)
     {
 		data.push_back(value);
         up(data.size() - 1);
     }
 	
-	// Минимум
+	// РњРёРЅРёРјСѓРј
 	T min()
     {
 		return data[0];
     }
 
-	// Удаление
+	// РЈРґР°Р»РµРЅРёРµ
 	T remove(T value)
 	{
 		return _remove(std::find(data.begin(), data.end(), value) - data.begin());
 	}
 	
-	// Удаление
+	// РЈРґР°Р»РµРЅРёРµ
 	T _remove(int index)
 	{
 		T value = data[index];

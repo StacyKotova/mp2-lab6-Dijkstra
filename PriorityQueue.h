@@ -1,28 +1,28 @@
-// Очередь с приоритетом
+п»ї// РћС‡РµСЂРµРґСЊ СЃ РїСЂРёРѕСЂРёС‚РµС‚РѕРј
 template <typename T, template <typename> class Tree> 
 class PriorityQueue
 {
-	Tree<T> tree; // Дерево
+	Tree<T> tree; // Р”РµСЂРµРІРѕ
 public:
-	// Конструктор
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	PriorityQueue(int D = 2)
 	{
 		tree = Tree<T>(D);
 	}
 
-	// Проверка на пустоту
+	// РџСЂРѕРІРµСЂРєР° РЅР° РїСѓСЃС‚РѕС‚Сѓ
 	bool isEmpty()
 	{
 		return tree.isEmpty();
 	}
 
-	// Вставка
+	// Р’СЃС‚Р°РІРєР°
 	void insert(const T& value)
 	{
 		tree.insert(value);
 	}
 	
-	// Извлечение минимума
+	// РР·РІР»РµС‡РµРЅРёРµ РјРёРЅРёРјСѓРјР°
 	T extractMin()
 	{
 		T min = tree.min();

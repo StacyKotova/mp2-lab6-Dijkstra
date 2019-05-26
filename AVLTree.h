@@ -1,4 +1,4 @@
-#ifndef AVLTREE_H
+п»ї#ifndef AVLTREE_H
 #define AVLTREE_H
 
 #include "AVLNode.h"
@@ -8,9 +8,9 @@
 template <typename T>
 class AVLTree
 {
-	AVLNode<T>* root; // Корень
+	AVLNode<T>* root; // РљРѕСЂРµРЅСЊ
 	
-	// Левое движение
+	// Р›РµРІРѕРµ РґРІРёР¶РµРЅРёРµ
 	AVLNode<T>* rotateLeft(AVLNode<T>* a)
 	{
 		AVLNode<T> *b = a->right;
@@ -36,7 +36,7 @@ class AVLTree
 		return b;
 	}
 	
-	// Правое движение
+	// РџСЂР°РІРѕРµ РґРІРёР¶РµРЅРёРµ
 	AVLNode<T>* rotateRight(AVLNode<T> *a)
 	{
 		AVLNode<T> *b = a->left;
@@ -62,21 +62,21 @@ class AVLTree
 		return b;
 	}
  
-	// Левое, затем правое движение
+	// Р›РµРІРѕРµ, Р·Р°С‚РµРј РїСЂР°РІРѕРµ РґРІРёР¶РµРЅРёРµ
 	AVLNode<T>* rotateLeftRight(AVLNode<T> *n)
 	{
 		n->left = rotateLeft(n->left);
 		return rotateRight(n);
 	}
  
-	// Левое, затем левое движение
+	// Р›РµРІРѕРµ, Р·Р°С‚РµРј Р»РµРІРѕРµ РґРІРёР¶РµРЅРёРµ
 	AVLNode<T>* rotateRightLeft(AVLNode<T> *n)
 	{
 		n->right = rotateRight(n->right);
 		return rotateLeft(n);
 	}
 	
-	// Изменение баланса во всем дереве
+	// РР·РјРµРЅРµРЅРёРµ Р±Р°Р»Р°РЅСЃР° РІРѕ РІСЃРµРј РґРµСЂРµРІРµ
 	void rebalance(AVLNode<T> *n)
 	{
 		setBalance(n);
@@ -102,7 +102,7 @@ class AVLTree
 			root = n;
 	}
 	
-	// Высота дерева
+	// Р’С‹СЃРѕС‚Р° РґРµСЂРµРІР°
 	int height(AVLNode<T> *n)
 	{
 		if (n == 0)
@@ -110,13 +110,13 @@ class AVLTree
 		return 1 + std::max(height(n->left), height(n->right));
 	}
 	
-	// Изменение баланса в узле
+	// РР·РјРµРЅРµРЅРёРµ Р±Р°Р»Р°РЅСЃР° РІ СѓР·Р»Рµ
 	void setBalance(AVLNode<T> *n)
 	{
 		n->balance = height(n->right) - height(n->left);
 	}
 	
-	// Минимум в дереве, начиная с узла n
+	// РњРёРЅРёРјСѓРј РІ РґРµСЂРµРІРµ, РЅР°С‡РёРЅР°СЏ СЃ СѓР·Р»Р° n
 	T& min(AVLNode<T> *n)
 	{
 		if (n->left)
@@ -125,7 +125,7 @@ class AVLTree
 			return n->data;
 	}
 	
-	// Печать дерева, начиная с узла n
+	// РџРµС‡Р°С‚СЊ РґРµСЂРµРІР°, РЅР°С‡РёРЅР°СЏ СЃ СѓР·Р»Р° n
 	void print(AVLNode<T> *n)
 	{
 		if (n->left)
@@ -136,25 +136,25 @@ class AVLTree
 	}
 	
 public:
-	// Конструктор
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
     AVLTree(int D = 0)
 	{
 		root = 0;
 	}
 	
-	// Деструктор
+	// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
     ~AVLTree()
 	{
 		delete root;
 	}
 
-	// Проверка на пустоту
+	// РџСЂРѕРІРµСЂРєР° РЅР° РїСѓСЃС‚РѕС‚Сѓ
 	bool isEmpty()
 	{
 		return root == 0;
 	}
 	
-	// Добавление значения value в дереве
+	// Р”РѕР±Р°РІР»РµРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ value РІ РґРµСЂРµРІРµ
     bool insert(const T& value)
 	{
 		if (root == 0)
@@ -189,7 +189,7 @@ public:
 		return true;
 	}
 
-	// Удаление значения value из дерева
+	// РЈРґР°Р»РµРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ value РёР· РґРµСЂРµРІР°
     void remove(const T& value)
 	{		
 		if (root == 0)
@@ -228,13 +228,13 @@ public:
         }
     }
 
-	// Минимум в дереве
+	// РњРёРЅРёРјСѓРј РІ РґРµСЂРµРІРµ
 	T& min()
 	{
 		return min(root);
 	}
 	
-	// Печать на экран дерева
+	// РџРµС‡Р°С‚СЊ РЅР° СЌРєСЂР°РЅ РґРµСЂРµРІР°
 	void print()
 	{
 		print(root);

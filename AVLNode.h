@@ -1,19 +1,19 @@
-#ifndef AVLNODE_H
+п»ї#ifndef AVLNODE_H
 #define AVLNODE_H
 
-// Класс узла АВЛ-дерева
+// РљР»Р°СЃСЃ СѓР·Р»Р° РђР’Р›-РґРµСЂРµРІР°
 template <typename T>
 struct AVLNode 
 {
-	T data; // Данные узла
-    int balance; // Баланс
-	AVLNode<T> *left, *right, *parent; // Левый, правый, родитель
+	T data; // Р”Р°РЅРЅС‹Рµ СѓР·Р»Р°
+    int balance; // Р‘Р°Р»Р°РЅСЃ
+	AVLNode<T> *left, *right, *parent; // Р›РµРІС‹Р№, РїСЂР°РІС‹Р№, СЂРѕРґРёС‚РµР»СЊ
 	
-	// Конструктор
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
     AVLNode(const T& d, AVLNode<T>* p): data(d), balance(0), parent(p),
 		left(0), right(0) {}
  
-	// Деструктор
+	// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
     ~AVLNode()
 	{
         delete left;
